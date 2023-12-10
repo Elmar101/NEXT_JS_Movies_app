@@ -62,3 +62,15 @@ div[data-nextjs-scroll-focus-boundary] {
 .container>.fluid {
   grid-column: 1 / -1;
 }
+
+header {
+  position: 'absolute'!important;
+  top: 0;
+  width: '100%'
+};
+
+.styles_header__G55yp {
+  position: absolute;
+  top: 0!important;
+  width: 100%!important;
+}

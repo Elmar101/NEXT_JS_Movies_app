@@ -11,7 +11,7 @@ const Test = async ( {searchParams}:{searchParams: { error?: string, notFound?: 
 
   await delay(2000);
 
-  if(searchParams.error === 'true') throw new Error("THIS IS ERROR")
+  if(searchParams.error === 'true') throw new Error("THIS IS ERROR");
   
   if(searchParams.notFound === 'true') notFound();
   

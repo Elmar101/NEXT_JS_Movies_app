@@ -6,41 +6,38 @@ import { FaPlus } from "react-icons/fa";
 import styles from "./styles.module.css";
 import Movies from "@/mocks/movies.json";
 
-type TypeMovie = (typeof Movies.results)[0];
-interface IProps {
-  movie: TypeMovie;
+type TypeMovie = (typeof Movies.results[0]);
+interface IProps<T> {
+  movie: T;
   isCompact?: boolean;
 }
 
-export const FeaturedMovie: React.FC<IProps> = ({
+const initialMovies = {
+  poster_path: "",
+  title: "",
+  overview: "",
+  id: null,
+};
+
+export const FeaturedMovie: React.FC< IProps<TypeMovie> > = ({
   movie,
   isCompact = true,
 }) => {
-  const { poster_path, title, overview, id } = movie ?? {
-    poster_path: "",
-    title: "",
-    overview: "",
-    id: "",
-  };
+  const { poster_path, title, overview, id } = movie ?? initialMovies;
 
   return (
     <div className={styles.movieWrapper}>
-      <h1 className={styles.movieTitle}>{title}</h1>
-      <p
-        className={`${styles.overview} ${
-          isCompact ? styles.shortOverview : ""
-        }`}
-      >
-        {overview}
-      </p>
+      <h1 className={styles.movieTitle}> {title} </h1>
+      <p className={`${styles.overview} ${ isCompact ? styles.shortOverview : "" }`}> {overview} </p>
+
       <div className={styles.actionButtons}>
-        <Link className={styles.playButton} href={`/movie/${id!}`}>
-          Play
-        </Link>
-        <button className={styles.addButton}>
-          <FaPlus />
-        </button>
+        <Link 
+          className={styles.playButton} 
+          href={`/movie/${id!}`}
+        >  Play </Link>
+        <button className={styles.addButton}> <FaPlus /> </button>
       </div>
+
       <div className={styles.moviePoster}>
         <div className={styles.moviePosterOverlay}></div>
         <Image
