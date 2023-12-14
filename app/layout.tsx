@@ -1,5 +1,3 @@
-// import Footer from "./components/Footer";
-// import Header from "./components/Header";
 import { Inter } from "next/font/google";
 import "@/styles/reset.css";
 import "@/styles/globals.css";
@@ -27,21 +25,4 @@ export default function RootLayout({
       </body>
     </html>
   );
-}
-
-// For testing
-// {
-//   return (
-//     <html lang="en">
-//       <body style={{height: "100vh"}}>
-//         <header>
-//           <Header />
-//         </header>
-//         <main>{children}</main>
-//         <footer>
-//           <Footer />
-//         </footer>
-//       </body>
-//     </html>
-//   );
-// }
+};
